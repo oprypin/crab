@@ -1,0 +1,34 @@
+version: 2.0
+shards:
+  bitfield:
+    git: https://github.com/mattrberry/bitfield.git
+    version: 0.1.3
+
+  crystal-raw-gl:
+    git: https://github.com/oprypin/crystal-raw-gl.git
+    version: 0.1.0+git.commit.a84c5d7f5c289d768a3d9ffccbfd0c744e19f767
+
+  imgui:
+    git: https://github.com/oprypin/crystal-imgui.git
+    version: 0.1.0+git.commit.7381050dec5949e5e7bc4eccab82f8af5b31699c
+
+  imgui-backends:
+    git: https://github.com/oprypin/crystal-imgui-backends.git
+    version: 0.1.0+git.commit.69cfec415d32e215da6780397259fd2dc7c4a69d
+
+  lib_gl:
+    git: https://github.com/nulldotpro/libgl.git
+    version: 0.1.0+git.commit.fed2ca7f6cd15efea94458b234c3ca5b0a8ffc5e
+
+  sdl:
+    git: https://github.com/ysbaddaden/sdl.cr.git
+    version: 0.1.0+git.commit.b674fbaaf9ff8505b3e76cbd43528d2f0cfdbdc2
+
+  stumpy_core:
+    git: https://github.com/stumpycr/stumpy_core.git
+    version: 1.9.1
+
+  stumpy_png:
+    git: https://github.com/stumpycr/stumpy_png.git
+    version: 5.0.1
+

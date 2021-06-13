@@ -13,7 +13,7 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
-          # - windows-latest
+          - windows-latest
     runs-on: ${{matrix.os}}
     env:
       SHARDS_OPTS: --ignore-crystal-version
@@ -23,6 +23,8 @@ jobs:
 
       - name: Install Crystal
         uses: oprypin/install-crystal@v1
+        with:
+          shards: nightly
 
       - name: Install SDL2
         if: runner.os == 'Linux'
@@ -40,7 +42,10 @@ jobs:
           echo "LIB=$(pwd)\sdl2\lib\x64:${env:LIB}" >>${env:GITHUB_ENV}
 
       - name: Install shards
-        run: shards install
+        run: shards install --skip-postinstall
+      - name: Build extensions
+        working-directory: lib/imgui-backends
+        run: make
       - name: Build
         run: shards build
       # - name: Run tests
