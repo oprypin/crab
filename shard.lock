@@ -14,11 +14,11 @@ shards:
 
   imgui-backends:
     git: https://github.com/oprypin/crystal-imgui-backends.git
-    version: 0.1.0+git.commit.69cfec415d32e215da6780397259fd2dc7c4a69d
+    version: 0.1.0+git.commit.bfd651e909d80966b5c85a1288d3e5286fc454a2
 
   lib_gl:
-    git: https://github.com/nulldotpro/libgl.git
-    version: 0.1.0+git.commit.fed2ca7f6cd15efea94458b234c3ca5b0a8ffc5e
+    git: https://github.com/oprypin/crystal-libgl.git
+    version: 0.1.0+git.commit.b3a1f175d399256d87cab1cf093f6495061e0948
 
   sdl:
     git: https://github.com/ysbaddaden/sdl.cr.git

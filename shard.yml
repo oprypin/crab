@@ -17,7 +17,7 @@ dependencies:
   sdl:
     github: ysbaddaden/sdl.cr
   lib_gl:
-    github: nulldotpro/LibGL
+    github: oprypin/crystal-libgl
   imgui:
     github: oprypin/crystal-imgui
   imgui-backends:

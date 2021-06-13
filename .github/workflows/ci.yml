@@ -38,8 +38,10 @@ jobs:
           iwr https://www.libsdl.org/release/SDL2-devel-2.0.10-VC.zip -OutFile sdl2.zip
           7z x sdl2.zip
           mv SDL2-* sdl2
-          echo "INCLUDE=$(pwd)\sdl2\include:${env:INCLUDE}" >>${env:GITHUB_ENV}
-          echo "LIB=$(pwd)\sdl2\lib\x64:${env:LIB}" >>${env:GITHUB_ENV}
+          #echo "INCLUDE=$(pwd)\sdl2\include;${env:INCLUDE}" >>${env:GITHUB_ENV}
+          #echo "LIB=$(pwd)\sdl2\lib\x64;${env:LIB}" >>${env:GITHUB_ENV}
+          echo "CPLUS_INCLUDE_PATH=$(pwd)\sdl2\include" >>${env:GITHUB_ENV}
+          echo "LIBRARY_PATH=$(pwd)\sdl2\lib\x64" >>${env:GITHUB_ENV}
 
       - name: Install shards
         run: shards install --skip-postinstall
@@ -54,6 +56,7 @@ jobs:
       - name: Gather files
         if: runner.os == 'Linux'
         run: |
+          patchelf --set-rpath '$ORIGIN' bin/crab
           mkdir dist
           cp --dereference bin/crab lib/imgui-backends/cimgui/libcimgui.so dist/
       - name: Gather files
