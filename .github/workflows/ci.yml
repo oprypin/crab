@@ -50,3 +50,20 @@ jobs:
         run: shards build
       # - name: Run tests
       #   run: crystal spec
+
+      - name: Gather files
+        if: runner.os == 'Linux'
+        run: |
+          mkdir dist
+          cp --dereference bin/crab lib/imgui-backends/cimgui/libcimgui.so dist/
+      - name: Gather files
+        if: runner.os == 'Windows'
+        run: |
+          mkdir dist
+          cp bin/crab.exe lib/x64/SDL2.dll lib/imgui-backends/cimgui/cimgui.dll dist/
+        shell: bash
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Crab${{runner.os}}
+          path: dist
